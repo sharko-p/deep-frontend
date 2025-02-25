@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log("Random FUNCTION5555555555555555555555"),document.body.innerHTML="<div>How are you? </div>"})();
