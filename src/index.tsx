@@ -1,17 +1,16 @@
-import { Counter } from "./components/Counter";
-import { render } from "react-dom";
-import  App  from "./components/App";
-import { BrowserRouter } from "react-router-dom";
 
+import { render } from "react-dom";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import ThemeProvider from "./theme/ThemeProvider";
 
 render(
-<div>
+  <div>
     <BrowserRouter>
-      <App/>
-    
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </BrowserRouter>
-  
-</div>,
-document.getElementById('root')
-
-)
+  </div>,
+  document.getElementById("root")
+);
