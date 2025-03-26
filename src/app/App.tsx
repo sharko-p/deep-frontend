@@ -7,15 +7,9 @@ import { AppRouter } from "./providers/router";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "../widgets/Sidebat/ui";
 import { Suspense } from "react";
-import { useTranslation } from "react-i18next";
 
-const Component=()=>{
-  const { t, i18n } = useTranslation();
 
-  return (
-    <div>{t("перевод")}</div>
-  )
-}
+
 
 const App = () => {
   const { theme } = useTheme();
@@ -25,7 +19,7 @@ const App = () => {
       <Suspense fallback=''>
        
         <Navbar />
-        <Component/>
+      
         <div className="content-page ">
           <Sidebar />
           <AppRouter />
