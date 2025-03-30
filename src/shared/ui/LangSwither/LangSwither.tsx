@@ -8,20 +8,20 @@ interface LangSwitherProps {
 }
 
 export const LangSwither = ({ className }: LangSwitherProps) => {
-  const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
 
-  const toggle = () => {
-    i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
-  };
+    const toggle = () => {
+        i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
+    };
 
-  return (
+    return (
 
-      <Button
-      className={classNames(cls.LangSwither, {}, [className])}
-      theme={ThemeButton.CLEAR}
-       onClick={toggle}
-       >
-        {t("Язык")}</Button>
+        <Button
+            className={classNames(cls.LangSwither, {}, [className])}
+            theme={ThemeButton.CLEAR}
+            onClick={toggle}
+        >
+            {t("Язык")}</Button>
 
-  );
+    );
 };

@@ -5,28 +5,28 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { useTheme } from "app/providers/ThemeProvider";
 import { AppRouter } from "./providers/router";
 import { Navbar } from "widgets/Navbar";
-import { Sidebar } from "../widgets/Sidebat/ui";
+import { Sidebar } from "widgets/Sidebar/ui";
 import { Suspense } from "react";
 
 
 
 
 const App = () => {
-  const { theme } = useTheme();
+    const { theme } = useTheme();
 
-  return (
-    <div className={classNames("app", {}, [theme])}>
-      <Suspense fallback=''>
+    return (
+        <div className={classNames("app", {}, [theme])}>
+            <Suspense fallback=''>
        
-        <Navbar />
+                <Navbar />
       
-        <div className="content-page ">
-          <Sidebar />
-          <AppRouter />
+                <div className="content-page ">
+                    <Sidebar />
+                    <AppRouter />
+                </div>
+            </Suspense>
         </div>
-      </Suspense>
-    </div>
-  );
+    );
 };
 
 export default App;
