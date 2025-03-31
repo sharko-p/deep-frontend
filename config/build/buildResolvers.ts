@@ -10,5 +10,3 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
         alias: {},
     };
 }
-
-

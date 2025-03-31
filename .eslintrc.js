@@ -6,6 +6,7 @@ module.exports = {
     },
     extends: [
         'plugin:react/recommended',
+        'airbnb',
         'plugin:i18next/recommended',
     ],
     parser: '@typescript-eslint/parser',
@@ -46,9 +47,4 @@ module.exports = {
     globals: {
         __IS_DEV__: true,
     },
-    settings: {
-        react: {
-            version: 'detect' // Автоматически определяет версию React
-        }
-    }
 };
