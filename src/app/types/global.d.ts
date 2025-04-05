@@ -1,5 +1,3 @@
-import React from 'react';
-
 declare module '*.scss' {
     interface IClassNames {
         [className: string]: string
@@ -11,10 +9,11 @@ declare module '*.scss' {
 declare module '*.png';
 declare module '*.jpg';
 declare module '*.jpeg';
-
 declare module '*.svg' {
-    const SVG: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
-    export default SVG;
-  }
+    import React from 'react';
 
-declare const __IS_DEV__:boolean;
+    const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
+    export default SVG;
+}
+
+declare const __IS_DEV__: boolean;

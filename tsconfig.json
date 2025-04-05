@@ -17,15 +17,6 @@
     "paths": {
       "*": ["./src/*"]
     },
-    /////альтернатива
-  //   "paths": {
-  //     "@/pages/*": ["./src/pages/*"],
-  //     "@/app/*": ["./src/app/*"],
-  //     "@/components/*": ["./src/components/*"],
-  //     "@/utils/*": ["./src/utils/*"],
-  //     "@/store/*": ["./src/store/*"],
-  // }
-    
     // esModuleInterop позволяет работать с пакетами, которые используют
     // common js как с обычными пакета с помощью import (require() module.export) = common js
     // import Moment from 'moment';

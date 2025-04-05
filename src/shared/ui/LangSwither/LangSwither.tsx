@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import cls from './LangSwither.module.scss';
+
 import { Button, ThemeButton } from '../Button/Button';
 
 interface LangSwitherProps {
@@ -17,7 +17,7 @@ export const LangSwither = ({ className }: LangSwitherProps) => {
     return (
 
         <Button
-            className={classNames(cls.LangSwither, {}, [className])}
+            className={classNames('', {}, [className])}
             theme={ThemeButton.CLEAR}
             onClick={toggle}
         >
