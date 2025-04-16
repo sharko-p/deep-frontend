@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 
-
 import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import {PageLoader} from "shared/ui/PageLoader/PageLoader";
 
 const AppRouter = () => (
-    <Suspense fallback={<div>Loading...</div>}>
+
         <Routes>
             {/* <Route path={"/about"} element={<AboutPage />} />//старый роут для сравнения
       <Route path={"/"} element={<MainPage />} /> */}
@@ -14,15 +14,16 @@ const AppRouter = () => (
                     key={path}
                     path={path}
                     element={(
+                        <Suspense fallback={<PageLoader/>}>
                         <div className="page-wrapper">
-                            {' '}
                             {element}
                         </div>
+                        </Suspense>
+
                     )}
                 />
             ))}
         </Routes>
-    </Suspense>
-);
 
+)
 export default AppRouter;
