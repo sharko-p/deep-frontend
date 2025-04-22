@@ -11,11 +11,6 @@ import { AppRouter } from './providers/router';
 const App = () => {
     const { theme } = useTheme();
 
-    // useEffect(() => {
-    //     if (Math.random() < 0, 1) {
-    //         throw new Error('jdiecj');
-    //     }
-    // }, []);
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
