@@ -1,38 +1,95 @@
 name: linting, testing, building
+
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
-jobs:
-  pipeline:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 17.x ]
+    branches: [master]
 
+jobs:
+  setup:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: install modules
+          node-version: 17.x
+      - name: Install modules
         run: npm install
-      - name: build production project
+      - uses: actions/upload-artifact@v2
+        with:
+          name: node-modules
+          path: node_modules
+
+  build_prod:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: node-modules
+          path: node_modules
+      - name: Build production project
         run: npm run build:prod
-        if: always()
-      - name: linting typescript
+
+  lint_ts:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: node-modules
+          path: node_modules
+      - name: Linting TypeScript
         run: npm run lint:ts
-        if: always()
-      - name: linting css
+
+  lint_scss:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: node-modules
+          path: node_modules
+      - name: Linting CSS
         run: npm run lint:scss
-      - name: unit testing
-        if: always()
+
+  unit_tests:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: node-modules
+          path: node_modules
+      - name: Unit testing
         run: npm run test:unit
-      - name: build storybook
+
+  build_storybook:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: node-modules
+          path: node_modules
+      - name: Build storybook
         run: npm run storybook:build
-        if: always()
-      - name: screenshot testing
+
+  ui_tests:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: node-modules
+          path: node_modules
+      - name: Screenshot testing
         run: npm run test:ui:ci
-        if: always()
