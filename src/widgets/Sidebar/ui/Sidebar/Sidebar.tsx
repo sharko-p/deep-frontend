@@ -1,10 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useState } from 'react';
+import {useTranslation} from "react-i18next";
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwither } from 'shared/ui/LangSwither/LangSwither';
 import { Button } from 'shared/ui/Button/Button';
 import cls from './Sidebar.module.scss';
-import {useTranslation} from "react-i18next";
+
 
 interface SidebarProps {
     className?: string;
