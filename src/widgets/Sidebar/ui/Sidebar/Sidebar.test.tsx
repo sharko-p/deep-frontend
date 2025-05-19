@@ -4,15 +4,15 @@ import {
     renderWithTranslation,
 } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
 import { fireEvent } from '@storybook/testing-library';
-import { Sidebar } from './Sidebar';
 import {
-    componentRender
-} from "shared/lib/tests/componentRender/componentRender";
+    componentRender,
+} from 'shared/lib/tests/componentRender/componentRender';
+import { Sidebar } from './Sidebar';
 
 describe('Sidebar', () => {
     test('with only firs param', () => {
         const SidebarWithTranslation = withTranslation()(Sidebar);
-        componentRender (<Sidebar />);
+        componentRender(<Sidebar />);
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     });
     test('test toggle', () => {

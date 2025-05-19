@@ -35,7 +35,7 @@ export const Modal = (props: ModalProps) => {
                 setIsClosing(false);
             }, ANIMATION_DELAY);
         }
-     },[onClose]);
+    }, [onClose]);
 
     // Новые ссылки!!!
     const onKeyDown = useCallback((e: KeyboardEvent) => {
