@@ -1,14 +1,12 @@
-import {configureStore} from "@reduxjs/toolkit";
-import {StateSchema} from "./StateSchema";
-
+import { configureStore } from '@reduxjs/toolkit';
+import { StateSchema } from './StateSchema';
 
 export function createReduxStore(initialState?: StateSchema) {
-
-    return configureStore <StateSchema> ({
+    return configureStore <StateSchema>({
         reducer: {},
         devTools: __IS_DEV__,
-        preloadedState:initialState
-    })
+        preloadedState: initialState,
+    });
 }
 
-export default createReduxStore
+export default createReduxStore;

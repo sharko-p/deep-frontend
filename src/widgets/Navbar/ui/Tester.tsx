@@ -18,33 +18,20 @@
 // }
 // export default Tester;
 
+import { useState } from 'react';
 
+const Tester = () => {
+    const [tap, setTap] = useState(false);
 
-import {useState} from "react";
+    const onTap = () => {
+        setTap(!tap);
+    };
 
-const Tester=()=>{
-    const [tap,setTap]=useState(false)
-
-    const onTap=()=>{
-        setTap(!tap)}
-
-    return(
+    return (
         <>
-            {!tap&&<p>goooooooooooooooooooooooool</p>}
-        <button onClick={onTap}>+</button>
+            {!tap && <p>goooooooooooooooooooooooool</p>}
+            <button onClick={onTap}>+</button>
         </>
-    )
-}
+    );
+};
 export default Tester;
-
-
-
-
-
-
-
-
-
-
-
-
